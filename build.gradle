@@ -28,6 +28,8 @@ repositories {
 }
 
 dependencies {
+    compile group: 'com.google.guava', name: 'guava', version: '23.4-jre'
+
     compile group: 'org.projectlombok', name: 'lombok'
 
     compile('org.springframework.boot:spring-boot-starter-webflux')

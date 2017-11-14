@@ -10,6 +10,7 @@ import lombok.ToString;
 public class CreatureWorldInfoActionEntryData {
 
     private final int id;
+    private final String ac;
     private final String name;
     private final int level;
 }
