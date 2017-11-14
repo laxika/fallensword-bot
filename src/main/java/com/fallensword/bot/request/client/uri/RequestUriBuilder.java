@@ -15,7 +15,11 @@ public class RequestUriBuilder {
     }
 
     private String buildParameters(final Map<String, String> parameters) {
-        return parameters.entrySet().stream()
+        if (parameters.size() == 0) {
+            return "";
+        }
+
+        return "&" + parameters.entrySet().stream()
                 .map(stringStringEntry -> stringStringEntry.getKey() + "=" + stringStringEntry.getValue())
                 .collect(Collectors.joining("&"));
     }

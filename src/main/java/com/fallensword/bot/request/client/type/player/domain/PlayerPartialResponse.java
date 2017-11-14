@@ -1,11 +1,13 @@
 package com.fallensword.bot.request.client.type.player.domain;
 
-import lombok.Builder;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
 @Getter
-@Builder
 public class PlayerPartialResponse {
 
-    private final String username;
+    private String username;
+
+    @JsonProperty("realm_id")
+    private int realmId;
 }

@@ -6,7 +6,6 @@ import com.fallensword.bot.request.client.type.world.action.WorldActionRequestCl
 import com.fallensword.bot.request.client.type.world.action.domain.WorldActionRequest;
 import com.fallensword.bot.request.client.type.world.action.domain.WorldActionResponse;
 import com.fallensword.bot.request.client.type.world.action.domain.entry.type.creature.CreatureWorldInfoActionEntry;
-import com.fallensword.bot.request.client.type.world.action.domain.entry.type.creature.CreatureWorldInfoActionEntryData;
 import com.fallensword.bot.routine.wait.WaitingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,21 +20,24 @@ public class MainRoutine {
 
     //Very VERY dumb test AI
     public void startBotRoutine() {
-        //Attack all monsters on the map if possible
-        final WorldActionResponse worldActionResponse = worldActionRequestClient.request(
-                WorldActionRequest.builder().build()
-        );
+        while (true) {
+            //Attack all monsters on the map if possible
+            final WorldActionResponse worldActionResponse = worldActionRequestClient.request(
+                    WorldActionRequest.builder().build()
+            );
+            waitingService.randomWait(2000);
 
-        worldActionResponse.getActions().stream()
-                .filter(worldInfoActionEntry -> worldInfoActionEntry instanceof CreatureWorldInfoActionEntry)
-                .forEach(worldInfoActionEntry -> {
-                    attackRequestClient.request(
-                            AttackRequestRequest.builder()
-                                    .creature((CreatureWorldInfoActionEntry) worldInfoActionEntry)
-                                    .build()
-                    );
+            worldActionResponse.getActions().stream()
+                    .filter(worldInfoActionEntry -> worldInfoActionEntry instanceof CreatureWorldInfoActionEntry)
+                    .forEach(worldInfoActionEntry -> {
+                        attackRequestClient.request(
+                                AttackRequestRequest.builder()
+                                        .creature((CreatureWorldInfoActionEntry) worldInfoActionEntry)
+                                        .build()
+                        );
 
-                    waitingService.randomWait(2000);
-                });
+                        waitingService.randomWait(2000);
+                    });
+        }
     }
 }

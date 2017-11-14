@@ -30,6 +30,6 @@ public class AttackRequestClient implements RequestClient<AttackRequestRequest, 
         );
 
         return requestResolver
-                .executeRequest(Action.INFO, FetchFlag.PLAYER_INFO, parameters, AttackRequestResponse.class);
+                .executeRequest(Action.ATTACK, FetchFlag.PLAYER_INFO, parameters, AttackRequestResponse.class);
     }
 }
