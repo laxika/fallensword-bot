@@ -12,15 +12,15 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class BotApplicationRunner implements ApplicationRunner {
 
-  private final PlayerInfoRequestClient playerInfoRequestClient;
+    private final PlayerInfoRequestClient playerInfoRequestClient;
 
-  @Override
-  public void run(ApplicationArguments args) throws Exception {
-    final PlayerInfoResponse playerInfoResponse = playerInfoRequestClient.request(
-        PlayerInfoRequest.builder()
-            .build()
-    );
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        final PlayerInfoResponse playerInfoResponse = playerInfoRequestClient.request(
+                PlayerInfoRequest.builder()
+                        .build()
+        );
 
-    System.out.println(playerInfoResponse.getPlayer().getUsername());
-  }
+        System.out.println(playerInfoResponse.getPlayer().getUsername());
+    }
 }

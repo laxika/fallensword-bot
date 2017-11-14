@@ -8,5 +8,5 @@ import lombok.Getter;
 @Builder
 public class PlayerInfoResponse implements Response {
 
-  private final PlayerPartialResponse player;
+    private final PlayerPartialResponse player;
 }

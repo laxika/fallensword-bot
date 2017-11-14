@@ -7,5 +7,5 @@ import lombok.Getter;
 @Builder
 public class PlayerPartialResponse {
 
-  private final String username;
+    private final String username;
 }
