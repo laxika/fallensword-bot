@@ -1,4 +1,4 @@
-package com.fallensword.bot.request.client.type.world.domain.action;
+package com.fallensword.bot.request.client.type.world.action.domain.entry;
 
 class WorldInfoActionEntryType implements WorldInfoActionEntry {
 

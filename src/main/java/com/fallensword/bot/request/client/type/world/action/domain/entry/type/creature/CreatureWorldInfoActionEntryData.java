@@ -1,4 +1,4 @@
-package com.fallensword.bot.request.client.type.world.domain.action.type.creature;
+package com.fallensword.bot.request.client.type.world.action.domain.entry.type.creature;
 
 import lombok.Builder;
 import lombok.Getter;

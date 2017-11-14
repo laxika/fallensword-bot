@@ -1,6 +1,6 @@
-package com.fallensword.bot.request.client.type.world.domain.action;
+package com.fallensword.bot.request.client.type.world.action.domain.entry;
 
-import com.fallensword.bot.request.client.type.world.domain.action.type.creature.CreatureWorldInfoActionEntry;
+import com.fallensword.bot.request.client.type.world.action.domain.entry.type.creature.CreatureWorldInfoActionEntry;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 

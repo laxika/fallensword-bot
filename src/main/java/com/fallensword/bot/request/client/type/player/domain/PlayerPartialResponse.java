@@ -1,4 +1,4 @@
-package com.fallensword.bot.request.client.type.info.domain;
+package com.fallensword.bot.request.client.type.player.domain;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -1,11 +1,11 @@
-package com.fallensword.bot.request.client.type.info;
+package com.fallensword.bot.request.client.type.player;
 
 import com.fallensword.bot.request.client.RequestClient;
 import com.fallensword.bot.request.client.RequestResolver;
 import com.fallensword.bot.request.client.domain.Action;
 import com.fallensword.bot.request.client.domain.FetchFlag;
-import com.fallensword.bot.request.client.type.info.domain.PlayerInfoRequest;
-import com.fallensword.bot.request.client.type.info.domain.PlayerInfoResponse;
+import com.fallensword.bot.request.client.type.player.domain.PlayerInfoRequest;
+import com.fallensword.bot.request.client.type.player.domain.PlayerInfoResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
