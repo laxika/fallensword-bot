@@ -1,11 +1,12 @@
 package com.fallensword.bot.routine;
 
-import com.fallensword.bot.request.client.type.attack.AttackRequestClient;
-import com.fallensword.bot.request.client.type.attack.domain.AttackRequestRequest;
-import com.fallensword.bot.request.client.type.world.action.WorldActionRequestClient;
-import com.fallensword.bot.request.client.type.world.action.domain.WorldActionRequest;
-import com.fallensword.bot.request.client.type.world.action.domain.WorldActionResponse;
-import com.fallensword.bot.request.client.type.world.action.domain.entry.type.creature.CreatureWorldInfoActionEntry;
+import com.fallensword.bot.api.endpoint.action.WorldActionEndpoint;
+import com.fallensword.bot.api.endpoint.action.domain.WorldActionContext;
+import com.fallensword.bot.api.endpoint.action.domain.WorldActionResult;
+import com.fallensword.bot.api.endpoint.action.domain.action.CreatureAvailableAction;
+import com.fallensword.bot.api.endpoint.attack.AttackEndpoint;
+import com.fallensword.bot.api.endpoint.attack.domain.AttackRequestContext;
+import com.fallensword.bot.api.endpoint.attack.domain.TargetCreature;
 import com.fallensword.bot.routine.wait.WaitingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,25 +15,35 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MainRoutine {
 
-    private final WorldActionRequestClient worldActionRequestClient;
-    private final AttackRequestClient attackRequestClient;
+    private final WorldActionEndpoint worldActionRequestClient;
+    private final AttackEndpoint attackRequestClient;
     private final WaitingService waitingService;
 
     //Very VERY dumb test AI
     public void startBotRoutine() {
         while (true) {
             //Attack all monsters on the map if possible
-            final WorldActionResponse worldActionResponse = worldActionRequestClient.request(
-                    WorldActionRequest.builder().build()
+            final WorldActionResult worldActionResponse = worldActionRequestClient.request(
+                    WorldActionContext.builder().build()
             );
             waitingService.randomWait(2000);
 
-            worldActionResponse.getActions().stream()
-                    .filter(worldInfoActionEntry -> worldInfoActionEntry instanceof CreatureWorldInfoActionEntry)
+            worldActionResponse.getAvailableActions().stream()
+                    .filter(worldInfoActionEntry -> worldInfoActionEntry instanceof CreatureAvailableAction)
                     .forEach(worldInfoActionEntry -> {
+                        final CreatureAvailableAction creatureAvailableAction =
+                                (CreatureAvailableAction) worldInfoActionEntry;
+
                         attackRequestClient.request(
-                                AttackRequestRequest.builder()
-                                        .creature((CreatureWorldInfoActionEntry) worldInfoActionEntry)
+                                AttackRequestContext.builder()
+                                        .creature(
+                                                TargetCreature.builder()
+                                                        .id(creatureAvailableAction.getId())
+                                                        .ac(creatureAvailableAction.getAc())
+                                                        .name(creatureAvailableAction.getName())
+                                                        .level(creatureAvailableAction.getLevel())
+                                                        .build()
+                                        )
                                         .build()
                         );
 
