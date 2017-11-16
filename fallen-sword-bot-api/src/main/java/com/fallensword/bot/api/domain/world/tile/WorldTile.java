@@ -1,4 +1,4 @@
-package com.fallensword.bot.api.endpoint.world.staticinfo.domain.response.domain;
+package com.fallensword.bot.api.domain.world.tile;
 
 import lombok.Builder;
 import lombok.Getter;

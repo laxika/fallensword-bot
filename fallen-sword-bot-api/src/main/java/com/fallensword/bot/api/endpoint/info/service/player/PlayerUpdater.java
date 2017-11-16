@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 public class PlayerUpdater {
 
     public void updatePlayer(final Player player, final PlayerPartialResponse playerPartialResponse) {
+        if (playerPartialResponse == null) {
+            return;
+        }
+
         player.setCurrentStamina(playerPartialResponse.getStamina().getCurrent());
         player.setMaximumStamina(playerPartialResponse.getStamina().getMaximum());
     }

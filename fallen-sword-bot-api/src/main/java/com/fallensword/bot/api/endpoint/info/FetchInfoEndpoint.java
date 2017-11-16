@@ -9,6 +9,7 @@ import com.fallensword.bot.api.endpoint.info.domain.FetchInfoResult;
 import com.fallensword.bot.api.endpoint.info.domain.response.FetchInfoResponse;
 import com.fallensword.bot.api.endpoint.info.service.action.ActionUpdater;
 import com.fallensword.bot.api.endpoint.info.service.player.PlayerUpdater;
+import com.fallensword.bot.api.endpoint.info.service.world.WorldUpdater;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,7 @@ public class FetchInfoEndpoint implements Endpoint<FetchInfoContext, FetchInfoRe
     private final RequestResolver requestResolver;
     private final PlayerUpdater playerUpdater;
     private final ActionUpdater actionUpdater;
+    private final WorldUpdater worldUpdater;
 
     @Override
     public FetchInfoResult request(final FetchInfoContext context) {
@@ -36,6 +38,7 @@ public class FetchInfoEndpoint implements Endpoint<FetchInfoContext, FetchInfoRe
         //TODO: Do this in a filter
         playerUpdater.updatePlayer(context.getPlayer(), fetchInfoResponse.getPlayer());
         actionUpdater.updateActions(context.getWorld(), fetchInfoResponse.getActions());
+        worldUpdater.updateWorld(context.getWorld(), fetchInfoResponse.getRealm());
 
         return FetchInfoResult.builder()
                 .build();

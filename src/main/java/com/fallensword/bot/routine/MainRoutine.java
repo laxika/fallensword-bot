@@ -10,6 +10,7 @@ import com.fallensword.bot.api.endpoint.attack.domain.TargetCreature;
 import com.fallensword.bot.api.endpoint.info.FetchInfoEndpoint;
 import com.fallensword.bot.api.endpoint.info.domain.FetchInfoContext;
 import com.fallensword.bot.api.endpoint.movement.MovementEndpoint;
+import com.fallensword.bot.routine.context.domain.RoutineContext;
 import com.fallensword.bot.routine.wait.WaitingService;
 import com.google.common.collect.Lists;
 import lombok.RequiredArgsConstructor;
@@ -22,15 +23,12 @@ public class MainRoutine {
     private final AttackEndpoint attackEndpoint;
     private final MovementEndpoint movementEndpoint;
     private final WaitingService waitingService;
-private final FetchInfoEndpoint fetchInfoEndpoint;
+    private final FetchInfoEndpoint fetchInfoEndpoint;
 
     //Very VERY dumb test AI
-    public void startBotRoutine() {
-        //Initialize the player
-        final Player player = Player.builder()
-                .build();
-        final World world = World.builder()
-                .build();
+    public void startBotRoutine(final RoutineContext routineContext) {
+        final Player player = routineContext.getPlayer();
+        final World world = routineContext.getWorld();
 
         while (true) {
             fetchInfoEndpoint.request(
