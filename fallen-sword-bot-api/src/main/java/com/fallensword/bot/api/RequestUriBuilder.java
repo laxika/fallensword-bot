@@ -1,7 +1,6 @@
 package com.fallensword.bot.api;
 
 import com.fallensword.bot.api.domain.Action;
-import com.fallensword.bot.api.domain.FetchFlag;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -10,8 +9,8 @@ import java.util.stream.Collectors;
 @Service
 public class RequestUriBuilder {
 
-    public String buildUri(final Action action, final FetchFlag fetchFlag, final Map<String, String> parameters) {
-        return "/fetchdata.php?a=" + action.getId() + "&d=" + fetchFlag.getId() + buildParameters(parameters);
+    public String buildUri(final Action action, final int fetchFlag, final Map<String, String> parameters) {
+        return "/fetchdata.php?a=" + action.getId() + "&d=" + fetchFlag + buildParameters(parameters);
     }
 
     private String buildParameters(final Map<String, String> parameters) {

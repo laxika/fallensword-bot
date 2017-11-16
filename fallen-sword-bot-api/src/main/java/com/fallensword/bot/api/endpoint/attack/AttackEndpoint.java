@@ -4,7 +4,7 @@ import com.fallensword.bot.api.RequestResolver;
 import com.fallensword.bot.api.domain.Action;
 import com.fallensword.bot.api.domain.Endpoint;
 import com.fallensword.bot.api.domain.FetchFlag;
-import com.fallensword.bot.api.endpoint.attack.domain.AttackRequestContext;
+import com.fallensword.bot.api.endpoint.attack.domain.AttackContext;
 import com.fallensword.bot.api.endpoint.attack.domain.AttackResult;
 import com.fallensword.bot.api.endpoint.attack.domain.response.AttackRequestResponse;
 import com.google.common.collect.ImmutableMap;
@@ -17,12 +17,12 @@ import java.util.Map;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class AttackEndpoint implements Endpoint<AttackRequestContext, AttackResult> {
+public class AttackEndpoint implements Endpoint<AttackContext, AttackResult> {
 
     private final RequestResolver requestResolver;
 
     @Override
-    public AttackResult request(final AttackRequestContext request) {
+    public AttackResult request(final AttackContext request) {
         log.info("Attacking Lvl " + request.getCreature().getLevel() + " "
                 + request.getCreature().getName());
 
@@ -31,7 +31,7 @@ public class AttackEndpoint implements Endpoint<AttackRequestContext, AttackResu
                 "ac", request.getCreature().getAc()
         );
 
-        requestResolver.executeRequest(Action.ATTACK, FetchFlag.PLAYER_INFO, parameters, AttackRequestResponse.class);
+        requestResolver.executeRequest(Action.ATTACK_MONSTER, FetchFlag.PLAYER_INFO, parameters, AttackRequestResponse.class);
 
         return AttackResult.builder()
                 .build();

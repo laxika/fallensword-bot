@@ -12,7 +12,12 @@ public enum Action {
     /**
      * Attack a creature on the world map.
      */
-    ATTACK(2);
+    ATTACK_MONSTER(2),
+    ATTACK_PLAYER(3),
+    /**
+     * Move on the world map.
+     */
+    MOVE(4);
 
     private final int id;
 
