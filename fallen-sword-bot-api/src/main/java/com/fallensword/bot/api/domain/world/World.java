@@ -9,13 +9,25 @@ import lombok.Setter;
 import java.util.List;
 
 @Setter
-@Getter
 @Builder
 public class World {
 
+    @Getter
     private List<AvailableAction> availableActions;
 
+    @Getter
     private int width;
+
+    @Getter
     private int height;
+
     private WorldTile[][] tiles;
+
+    public WorldTile getTileAt(final int x, final int y) {
+        if (x < 0 || y < 0 || x > width || y > height) {
+            return null;
+        }
+
+        return tiles[y][x];
+    }
 }

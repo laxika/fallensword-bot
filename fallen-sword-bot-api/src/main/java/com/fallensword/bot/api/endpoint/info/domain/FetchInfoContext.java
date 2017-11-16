@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Builder
@@ -15,5 +16,5 @@ public class FetchInfoContext implements Context {
 
     private final Player player;
     private final World world;
-    private final List<FetchFlag> flags;
+    private final Set<FetchFlag> flags;
 }

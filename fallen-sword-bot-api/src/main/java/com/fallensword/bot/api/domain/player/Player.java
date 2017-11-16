@@ -8,6 +8,8 @@ import lombok.*;
 @Builder
 public class Player {
 
+    private int locationX;
+    private int locationY;
     private int currentStamina;
     private int maximumStamina;
 }

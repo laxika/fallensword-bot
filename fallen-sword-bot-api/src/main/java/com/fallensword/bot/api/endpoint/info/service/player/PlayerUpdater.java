@@ -12,6 +12,8 @@ public class PlayerUpdater {
             return;
         }
 
+        player.setLocationX(playerPartialResponse.getLocation().getX());
+        player.setLocationY(playerPartialResponse.getLocation().getY());
         player.setCurrentStamina(playerPartialResponse.getStamina().getCurrent());
         player.setMaximumStamina(playerPartialResponse.getStamina().getMaximum());
     }

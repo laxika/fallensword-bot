@@ -6,9 +6,10 @@ import com.fallensword.bot.api.domain.world.World;
 import com.fallensword.bot.api.endpoint.info.FetchInfoEndpoint;
 import com.fallensword.bot.api.endpoint.info.domain.FetchInfoContext;
 import com.fallensword.bot.routine.context.domain.RoutineContext;
-import com.google.common.collect.Lists;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.EnumSet;
 
 @Service
 @RequiredArgsConstructor
@@ -28,7 +29,7 @@ public class RoutineContextFactory {
                         .player(player)
                         .world(world)
                         .flags(
-                                Lists.newArrayList(
+                                EnumSet.of(
                                         FetchFlag.PLAYER_INFO,
                                         FetchFlag.AVAILABLE_ACTIONS,
                                         FetchFlag.STATIC_WORLD_INFO

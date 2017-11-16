@@ -27,13 +27,8 @@ public class FetchInfoEndpoint implements Endpoint<FetchInfoContext, FetchInfoRe
 
     @Override
     public FetchInfoResult request(final FetchInfoContext context) {
-        final int fetchValue = context.getFlags().stream()
-                .map(FetchFlag::getId)
-                .mapToInt(Integer::intValue)
-                .sum();
-
         final FetchInfoResponse fetchInfoResponse = requestResolver
-                .executeRequest(Action.INFO, fetchValue, FetchInfoResponse.class);
+                .executeRequest(Action.INFO, context.getFlags(), FetchInfoResponse.class);
 
         //TODO: Do this in a filter
         playerUpdater.updatePlayer(context.getPlayer(), fetchInfoResponse.getPlayer());

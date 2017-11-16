@@ -9,7 +9,9 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.Map;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -19,21 +21,22 @@ public class RequestResolver {
     private final RequestUriBuilder requestUriBuilder;
     private final ObjectMapper objectMapper;
 
-    public <T> T executeRequest(final Action action, final FetchFlag fetchFlag, Class<T> type) {
-        return executeRequest(action, fetchFlag.getId(), Collections.emptyMap(), type);
-    }
-
-    public <T> T executeRequest(final Action action, final FetchFlag fetchFlag, Map<String, String> parameters, Class<T> type) {
-        return executeRequest(action, fetchFlag.getId(), parameters, type);
-    }
-
-    public <T> T executeRequest(final Action action, final int fetchFlag, Class<T> type) {
+    public <T> T executeRequest(final Action action, final Set<FetchFlag> fetchFlag, Class<T> type) {
         return executeRequest(action, fetchFlag, Collections.emptyMap(), type);
     }
 
-    public <T> T executeRequest(final Action action, final int fetchFlag, Map<String, String> parameters, Class<T> type) {
+    public <T> T executeRequest(final Action action, final FetchFlag fetchFlag, Map<String, String> parameters, Class<T> type) {
+        return executeRequest(action, EnumSet.of(fetchFlag), parameters, type);
+    }
+
+    public <T> T executeRequest(final Action action, final Set<FetchFlag> fetchFlag, Map<String, String> parameters, Class<T> type) {
+        final int fetchValue = fetchFlag.stream()
+                .map(FetchFlag::getId)
+                .mapToInt(Integer::intValue)
+                .sum();
+
         final String infoUri = requestUriBuilder
-                .buildUri(action, fetchFlag, parameters);
+                .buildUri(action, fetchValue, parameters);
 
         final String content = webClient.get()
                 .uri(infoUri)

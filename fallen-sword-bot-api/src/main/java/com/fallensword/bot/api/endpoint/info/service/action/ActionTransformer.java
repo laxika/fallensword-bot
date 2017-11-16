@@ -1,14 +1,13 @@
 package com.fallensword.bot.api.endpoint.info.service.action;
 
-import com.fallensword.bot.api.domain.world.action.AvailableAction;
-import com.fallensword.bot.api.domain.world.action.CreatureAvailableAction;
-import com.fallensword.bot.api.domain.world.action.PlayerAvailableAction;
-import com.fallensword.bot.api.domain.world.action.TeleportAvailableAction;
+import com.fallensword.bot.api.domain.world.action.*;
 import com.fallensword.bot.api.endpoint.info.domain.response.action.entry.WorldInfoActionEntry;
 import com.fallensword.bot.api.endpoint.info.domain.response.action.entry.type.creature.CreatureWorldInfoActionEntry;
 import com.fallensword.bot.api.endpoint.info.domain.response.action.entry.type.creature.CreatureWorldInfoActionEntryData;
 import com.fallensword.bot.api.endpoint.info.domain.response.action.entry.type.player.PlayerWorldInfoActionEntry;
 import com.fallensword.bot.api.endpoint.info.domain.response.action.entry.type.player.PlayerWorldInfoActionEntryData;
+import com.fallensword.bot.api.endpoint.info.domain.response.action.entry.type.quest.QuestWorldInfoActionEntry;
+import com.fallensword.bot.api.endpoint.info.domain.response.action.entry.type.quest.QuestWorldInfoActionEntryData;
 import com.fallensword.bot.api.endpoint.info.domain.response.action.entry.type.teleport.TeleportWorldInfoActionEntry;
 import com.fallensword.bot.api.endpoint.info.domain.response.action.entry.type.teleport.TeleportWorldInfoActionEntryData;
 import org.springframework.stereotype.Service;
@@ -49,6 +48,15 @@ public class ActionTransformer {
                         return TeleportAvailableAction.builder()
                                 .id(teleportWorldInfoActionEntryData.getId())
                                 .name(teleportWorldInfoActionEntryData.getName())
+                                .build();
+                    } else if (action instanceof QuestWorldInfoActionEntry) {
+                        final QuestWorldInfoActionEntryData questWorldInfoActionEntryData =
+                                ((QuestWorldInfoActionEntry) action).getData();
+
+                        return QuestAvailableAction.builder()
+                                .id(questWorldInfoActionEntryData.getId())
+                                .name(questWorldInfoActionEntryData.getName())
+                                .stage(questWorldInfoActionEntryData.getStage())
                                 .build();
                     }
 

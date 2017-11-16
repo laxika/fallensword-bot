@@ -1,6 +1,7 @@
 package com.fallensword.bot.api.endpoint.info.domain.response.player;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter
@@ -12,4 +13,5 @@ public class PlayerPartialResponse {
     private int realmId;
 
     private PlayerStaminaPartialResponse stamina;
+    private PlayerLocationPartialResponse location;
 }
