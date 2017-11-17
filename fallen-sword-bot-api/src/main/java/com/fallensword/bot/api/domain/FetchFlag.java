@@ -6,10 +6,6 @@ import lombok.Getter;
 public enum FetchFlag {
 
     /**
-     * Nothing will be fetched.
-     */
-    NONE(0),
-    /**
      * Returns information about the player like username, currentStamina, gold, location etc.
      */
     PLAYER_INFO(1),

@@ -1,4 +1,4 @@
-package com.fallensword.bot.routine.context.domain;
+package com.fallensword.bot.routine.pipeline.domain;
 
 import com.fallensword.bot.api.domain.player.Player;
 import com.fallensword.bot.api.domain.world.World;
@@ -9,6 +9,7 @@ import lombok.Getter;
 @Builder
 public class RoutineContext {
 
+    private final int nextRoutineHandlerId;
     private final Player player;
     private final World world;
 }
