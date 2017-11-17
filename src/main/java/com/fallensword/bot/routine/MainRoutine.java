@@ -16,12 +16,14 @@ import com.fallensword.bot.routine.context.domain.RoutineContext;
 import com.fallensword.bot.routine.movement.domain.MovementTarget;
 import com.fallensword.bot.routine.wait.WaitingService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class MainRoutine {
@@ -37,6 +39,12 @@ public class MainRoutine {
         final World world = routineContext.getWorld();
 
         while (true) {
+            if (player.getCurrentStamina() == 0) {
+                log.info("Ran out of stamina. ");
+
+                waitingService.randomWait(900000);
+            }
+
             //Fetch available actions
             fetchInfoEndpoint.request(
                     FetchInfoContext.builder()

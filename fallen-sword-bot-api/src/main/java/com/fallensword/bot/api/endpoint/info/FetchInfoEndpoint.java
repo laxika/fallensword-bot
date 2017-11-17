@@ -3,7 +3,6 @@ package com.fallensword.bot.api.endpoint.info;
 import com.fallensword.bot.api.RequestResolver;
 import com.fallensword.bot.api.domain.Action;
 import com.fallensword.bot.api.domain.Endpoint;
-import com.fallensword.bot.api.domain.FetchFlag;
 import com.fallensword.bot.api.endpoint.info.domain.FetchInfoContext;
 import com.fallensword.bot.api.endpoint.info.domain.FetchInfoResult;
 import com.fallensword.bot.api.endpoint.info.domain.response.FetchInfoResponse;
