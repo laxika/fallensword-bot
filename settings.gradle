@@ -1,3 +1,4 @@
 include 'fallen-sword-bot-api'
 include 'fallen-sword-bot-routine'
+include 'fallen-sword-bot-movement'
 

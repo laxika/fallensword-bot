@@ -1,4 +1,4 @@
-package com.fallensword.bot.routine.movement.domain;
+package com.fallensword.bot.movement.target.domain;
 
 public enum  MovementTarget {
     NORTH,
