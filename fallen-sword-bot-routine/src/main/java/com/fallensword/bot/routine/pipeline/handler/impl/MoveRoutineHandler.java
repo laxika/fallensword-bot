@@ -1,6 +1,6 @@
 package com.fallensword.bot.routine.pipeline.handler.impl;
 
-import com.fallensword.bot.movement.MovementService;
+import com.fallensword.bot.movement.MovementFacade;
 import com.fallensword.bot.routine.pipeline.RoutinePipeline;
 import com.fallensword.bot.routine.pipeline.domain.RoutineContext;
 import com.fallensword.bot.routine.pipeline.handler.RoutineHandler;
@@ -15,10 +15,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MoveRoutineHandler implements RoutineHandler {
 
-    private final MovementService movementService;
+    private final MovementFacade movementFacade;
 
     @Override
     public void handle(RoutineContext routineContext, RoutinePipeline routinePipeline) {
-        movementService.moveToNextDirection(routineContext.getPlayer(), routineContext.getWorld());
+        movementFacade.moveToRandomAdjacentTile(routineContext.getPlayer(), routineContext.getWorld());
     }
 }
