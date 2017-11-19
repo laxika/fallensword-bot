@@ -1,10 +1,11 @@
-package com.fallensword.bot.routine.configuration;
+package com.fallensword.bot.routine.pipeline.configuration;
 
 import com.fallensword.bot.routine.pipeline.RoutinePipeline;
 import com.fallensword.bot.routine.pipeline.handler.impl.CheckAvailableStaminaRoutineHandler;
 import com.fallensword.bot.routine.pipeline.handler.impl.ClearTileRoutineHandler;
 import com.fallensword.bot.routine.pipeline.handler.impl.MoveRoutineHandler;
 import com.fallensword.bot.routine.pipeline.handler.impl.RefreshInfoRoutineHandler;
+import com.fallensword.bot.routine.pipeline.handler.impl.quest.AcceptAllQuestOnMapRoutineHandler;
 import com.google.common.collect.Lists;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -18,6 +19,7 @@ public class RoutineConfiguration {
     private final CheckAvailableStaminaRoutineHandler checkAvailableStaminaRoutineHandler;
     private final ClearTileRoutineHandler clearTileRoutineHandler;
     private final MoveRoutineHandler moveRoutineHandler;
+    private final AcceptAllQuestOnMapRoutineHandler acceptAllQuestOnMapRoutineHandler;
 
     @Bean
     public RoutinePipeline routinePipeline() {
@@ -26,6 +28,7 @@ public class RoutineConfiguration {
                         refreshInfoRoutineHandler,
                         checkAvailableStaminaRoutineHandler,
                         clearTileRoutineHandler,
+                        acceptAllQuestOnMapRoutineHandler,
                         moveRoutineHandler
                 )
         );

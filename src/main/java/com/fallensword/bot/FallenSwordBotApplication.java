@@ -43,7 +43,8 @@ public class FallenSwordBotApplication implements ApplicationRunner {
                                 EnumSet.of(
                                         FetchFlag.PLAYER_INFO,
                                         FetchFlag.AVAILABLE_ACTIONS,
-                                        FetchFlag.STATIC_WORLD_INFO
+                                        FetchFlag.STATIC_WORLD_INFO,
+                                        FetchFlag.DYNAMIC_WORLD_INFO
                                 )
                         )
                         .build()

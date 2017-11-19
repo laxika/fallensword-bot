@@ -1,6 +1,7 @@
 package com.fallensword.bot.api.domain.world;
 
 import com.fallensword.bot.api.domain.world.action.AvailableAction;
+import com.fallensword.bot.api.domain.world.dynamic.DynamicEntry;
 import com.fallensword.bot.api.domain.world.tile.WorldTile;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,6 +23,8 @@ public class World {
     private int height;
 
     private WorldTile[][] tiles;
+
+    private List<DynamicEntry> dynamicEntries;
 
     public WorldTile getTileAt(final int x, final int y) {
         if (x < 0 || y < 0 || x > width || y > height) {

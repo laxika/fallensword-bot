@@ -1,6 +1,6 @@
 package com.fallensword.bot.api.endpoint.info.domain.response.world.dynamic.type.marker;
 
-import com.fallensword.bot.api.endpoint.info.domain.response.world.dynamic.DynamicRealmEntry;
+import com.fallensword.bot.api.endpoint.info.domain.response.world.dynamic.RawDynamicEntryPartialResponse;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @Builder
 @ToString
-public class MapMarkerDynamicRealmEntry implements DynamicRealmEntry {
+public class RawWorldMarkerDynamicEntryPartialResponse implements RawDynamicEntryPartialResponse {
 
     private final int id;
     private final String name;

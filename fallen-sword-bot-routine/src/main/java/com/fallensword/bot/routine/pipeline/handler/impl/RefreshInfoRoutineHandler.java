@@ -31,7 +31,8 @@ public class RefreshInfoRoutineHandler implements RoutineHandler {
                         .flags(
                                 EnumSet.of(
                                         FetchFlag.PLAYER_INFO,
-                                        FetchFlag.AVAILABLE_ACTIONS
+                                        FetchFlag.AVAILABLE_ACTIONS,
+                                        FetchFlag.DYNAMIC_WORLD_INFO
                                 )
                         )
                         .build()

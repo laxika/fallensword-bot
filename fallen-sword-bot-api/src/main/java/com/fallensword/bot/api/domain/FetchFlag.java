@@ -14,6 +14,10 @@ public enum FetchFlag {
      */
     STATIC_WORLD_INFO(64),
     /**
+     * Return the dynamic information of the world. Like available quests, open/closed endpoints etc.
+     */
+    DYNAMIC_WORLD_INFO(128),
+    /**
      * Return information about the available actions on the player's location.
      */
     AVAILABLE_ACTIONS(256);

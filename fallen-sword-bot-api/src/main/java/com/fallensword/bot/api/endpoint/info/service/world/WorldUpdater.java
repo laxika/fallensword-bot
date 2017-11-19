@@ -5,11 +5,14 @@ import com.fallensword.bot.api.endpoint.info.domain.response.world.RealmPartialR
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class WorldUpdater {
 
     private final TileDataTransformer tileDataTransformer;
+    private final DynamicEntryTransformer dynamicEntryTransformer;
 
     public void updateWorld(final World world, final RealmPartialResponse realmPartialResponse) {
         if (realmPartialResponse == null) {
@@ -25,5 +28,12 @@ public class WorldUpdater {
                         realmPartialResponse.getBlock()
                 )
         );
+        if(realmPartialResponse.getDynamic() != null) {
+            world.setDynamicEntries(
+                    realmPartialResponse.getDynamic().stream()
+                            .map(dynamicEntryTransformer::transform)
+                            .collect(Collectors.toList())
+            );
+        }
     }
 }
