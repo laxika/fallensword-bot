@@ -22,9 +22,10 @@ public class World {
     @Getter
     private int height;
 
-    private WorldTile[][] tiles;
-
+    @Getter
     private List<DynamicEntry> dynamicEntries;
+
+    private WorldTile[][] tiles;
 
     public WorldTile getTileAt(final int x, final int y) {
         if (x < 0 || y < 0 || x > width || y > height) {

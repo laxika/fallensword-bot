@@ -19,16 +19,19 @@ public class WorldUpdater {
             return;
         }
 
-        world.setWidth(realmPartialResponse.getW());
-        world.setHeight(realmPartialResponse.getH());
-        world.setTiles(
-                tileDataTransformer.transform(
-                        realmPartialResponse.getW(),
-                        realmPartialResponse.getH(),
-                        realmPartialResponse.getBlock()
-                )
-        );
-        if(realmPartialResponse.getDynamic() != null) {
+        if (realmPartialResponse.getW() != 0 && realmPartialResponse.getH() != 0) {
+            world.setWidth(realmPartialResponse.getW());
+            world.setHeight(realmPartialResponse.getH());
+            world.setTiles(
+                    tileDataTransformer.transform(
+                            realmPartialResponse.getW(),
+                            realmPartialResponse.getH(),
+                            realmPartialResponse.getBlock()
+                    )
+            );
+        }
+
+        if (realmPartialResponse.getDynamic() != null) {
             world.setDynamicEntries(
                     realmPartialResponse.getDynamic().stream()
                             .map(dynamicEntryTransformer::transform)
