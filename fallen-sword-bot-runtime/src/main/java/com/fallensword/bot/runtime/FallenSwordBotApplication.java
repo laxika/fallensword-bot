@@ -1,4 +1,4 @@
-package com.fallensword.bot;
+package com.fallensword.bot.runtime;
 
 import com.fallensword.bot.api.domain.FetchFlag;
 import com.fallensword.bot.api.domain.player.Player;
@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.EnumSet;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.fallensword.bot")
 public class FallenSwordBotApplication implements ApplicationRunner {
 
     public static void main(String[] args) {

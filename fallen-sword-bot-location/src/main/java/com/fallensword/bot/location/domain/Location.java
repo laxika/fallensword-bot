@@ -1,4 +1,4 @@
-package com.fallensword.bot.movement.target.domain;
+package com.fallensword.bot.location.domain;
 
 import lombok.Builder;
 import lombok.Getter;

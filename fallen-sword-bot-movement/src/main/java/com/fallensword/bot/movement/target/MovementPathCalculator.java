@@ -3,7 +3,7 @@ package com.fallensword.bot.movement.target;
 import com.fallensword.bot.api.domain.player.Player;
 import com.fallensword.bot.api.domain.world.World;
 import com.fallensword.bot.api.domain.world.tile.WorldTile;
-import com.fallensword.bot.movement.target.domain.Location;
+import com.fallensword.bot.location.domain.Location;
 import org.springframework.stereotype.Service;
 import org.xguzm.pathfinding.PathFinder;
 import org.xguzm.pathfinding.grid.GridCell;

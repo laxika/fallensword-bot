@@ -1,0 +1,8 @@
+dependencies {
+    compile project(':fallen-sword-bot-routine')
+}
+
+apply plugin: 'application'
+mainClassName = 'com.fallensword.bot.runtime.FallenSwordBotApplication'
+
+apply plugin: 'org.springframework.boot'

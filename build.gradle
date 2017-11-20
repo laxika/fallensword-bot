@@ -1,39 +1,47 @@
 buildscript {
-    ext {
-        springBootVersion = '2.0.0.M6'
-    }
     repositories {
         mavenCentral()
         maven { url "http://repo.spring.io/snapshot" }
         maven { url "http://repo.spring.io/milestone" }
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: '2.0.0.M6'
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
 
-group = 'com.fallensword'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+    dependencyManagement {
+        imports {
+            mavenBom 'org.springframework.boot:spring-boot-dependencies:2.0.0.M6'
+        }
+    }
 
-repositories {
-    mavenCentral()
-    maven { url "http://repo.spring.io/snapshot" }
-    maven { url "http://repo.spring.io/milestone" }
-}
+    repositories {
+        mavenCentral()
+        maven {
+            url "http://repo.spring.io/snapshot"
+        }
+        maven {
+            url "http://repo.spring.io/milestone"
+        }
+    }
 
-dependencies {
-    compile group: 'com.google.guava', name: 'guava', version: '23.4-jre'
+    dependencies {
+        compile group: 'com.google.guava', name: 'guava', version: '23.4-jre'
 
-    compile group: 'org.projectlombok', name: 'lombok'
+        compile group: 'org.projectlombok', name: 'lombok'
 
-    compile('org.springframework.boot:spring-boot-starter-webflux')
+        compile('org.springframework.boot:spring-boot-starter-webflux')
+    }
 
-    compile project(':fallen-sword-bot-api')
-    compile project(':fallen-sword-bot-routine')
+    group = 'com.fallensword'
+    version = '0.0.1-SNAPSHOT'
+
+    compileJava {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 }

@@ -7,7 +7,7 @@ import com.fallensword.bot.api.endpoint.movement.MovementEndpoint;
 import com.fallensword.bot.api.endpoint.movement.domain.MovementContext;
 import com.fallensword.bot.movement.target.MovementPathCalculator;
 import com.fallensword.bot.movement.target.MovementTargetCalculator;
-import com.fallensword.bot.movement.target.domain.Location;
+import com.fallensword.bot.location.domain.Location;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
