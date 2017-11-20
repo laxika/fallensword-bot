@@ -1,5 +1,6 @@
 package com.fallensword.bot.api.endpoint.info.domain.response.world.dynamic;
 
+import com.fallensword.bot.api.endpoint.info.domain.response.world.dynamic.type.RawUnknownDynamicEntryPartialResponse;
 import com.fallensword.bot.api.endpoint.info.domain.response.world.dynamic.type.marker.RawWorldMarkerDynamicEntryPartialResponse;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -8,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = RawWorldMarkerDynamicEntryPartialResponse.class, name = DynamicRealmEntryType.MAP_MARKER_TYPE_ID),
+        @JsonSubTypes.Type(value = RawUnknownDynamicEntryPartialResponse.class, name = DynamicRealmEntryType.UNKNOWN_TYPE_ID),
 })
 public interface RawDynamicEntryPartialResponse {
 }

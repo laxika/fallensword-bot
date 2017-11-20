@@ -1,5 +1,6 @@
 package com.fallensword.bot.api.endpoint.info.domain.response.world;
 
+import com.fallensword.bot.api.endpoint.info.domain.response.world.dynamic.RawDynamicEntryPartialResponse;
 import com.fallensword.bot.api.endpoint.info.domain.response.world.dynamic.type.marker.RawWorldMarkerDynamicEntryPartialResponse;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,5 +16,5 @@ public class RealmPartialResponse {
     private final int w;
     private final int h;
     private final String block;
-    private final List<RawWorldMarkerDynamicEntryPartialResponse> dynamic;
+    private final List<RawDynamicEntryPartialResponse> dynamic;
 }
