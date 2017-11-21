@@ -1,6 +1,6 @@
 package com.fallensword.bot.api.endpoint.info.service.action;
 
-import com.fallensword.bot.api.domain.world.action.*;
+import com.fallensword.bot.world.domain.action.*;
 import com.fallensword.bot.api.endpoint.info.domain.response.action.entry.WorldInfoActionEntry;
 import com.fallensword.bot.api.endpoint.info.domain.response.action.entry.type.creature.CreatureWorldInfoActionEntry;
 import com.fallensword.bot.api.endpoint.info.domain.response.action.entry.type.creature.CreatureWorldInfoActionEntryData;

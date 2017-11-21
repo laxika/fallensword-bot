@@ -1,4 +1,4 @@
-package com.fallensword.bot.api.domain.world.tile;
+package com.fallensword.bot.world.domain.tile;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @Builder
 @ToString
-public class WorldTile {
+public class Tile {
 
     @Setter
     private int movementCount;

@@ -1,0 +1,4 @@
+dependencies {
+    compile project(':fallen-sword-bot-location')
+    compile project(':fallen-sword-bot-world')
+}

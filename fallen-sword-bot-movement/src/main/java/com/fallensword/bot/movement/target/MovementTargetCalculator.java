@@ -1,10 +1,10 @@
 package com.fallensword.bot.movement.target;
 
 import com.fallensword.bot.api.domain.player.Player;
-import com.fallensword.bot.api.domain.world.World;
-import com.fallensword.bot.api.domain.world.tile.WorldTile;
 import com.fallensword.bot.location.domain.Location;
 import com.fallensword.bot.movement.target.domain.MovementTarget;
+import com.fallensword.bot.world.domain.World;
+import com.fallensword.bot.world.domain.tile.Tile;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -72,7 +72,7 @@ public class MovementTargetCalculator {
     }
 
     private int calculateMovementCountForTarget(final World world, final int x, final int y) {
-        final WorldTile tile = world.getTileAt(x, y);
+        final Tile tile = world.getTileAt(x, y);
 
         return tile != null && tile.isWalkable() ? tile.getMovementCount() : -1;
     }

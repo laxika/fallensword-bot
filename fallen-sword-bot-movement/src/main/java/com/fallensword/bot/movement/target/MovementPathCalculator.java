@@ -1,9 +1,9 @@
 package com.fallensword.bot.movement.target;
 
 import com.fallensword.bot.api.domain.player.Player;
-import com.fallensword.bot.api.domain.world.World;
-import com.fallensword.bot.api.domain.world.tile.WorldTile;
 import com.fallensword.bot.location.domain.Location;
+import com.fallensword.bot.world.domain.World;
+import com.fallensword.bot.world.domain.tile.Tile;
 import org.springframework.stereotype.Service;
 import org.xguzm.pathfinding.PathFinder;
 import org.xguzm.pathfinding.grid.GridCell;
@@ -21,7 +21,7 @@ public class MovementPathCalculator {
 
         for (int x = 0; x < world.getWidth(); x++) {
             for (int y = 0; y < world.getHeight(); y++) {
-                final WorldTile tile = world.getTileAt(x, y);
+                final Tile tile = world.getTileAt(x, y);
 
                 tiles[x][y] = new GridCell(x, y, tile.isWalkable());
             }

@@ -1,7 +1,7 @@
 package com.fallensword.bot.routine.pipeline.domain;
 
 import com.fallensword.bot.api.domain.player.Player;
-import com.fallensword.bot.api.domain.world.World;
+import com.fallensword.bot.world.domain.World;
 import lombok.Builder;
 import lombok.Getter;
 

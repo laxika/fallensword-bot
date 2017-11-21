@@ -1,6 +1,6 @@
 package com.fallensword.bot.api.endpoint.info.service.world;
 
-import com.fallensword.bot.api.domain.world.World;
+import com.fallensword.bot.world.domain.World;
 import com.fallensword.bot.api.endpoint.info.domain.response.world.RealmPartialResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

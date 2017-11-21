@@ -1,0 +1,13 @@
+{
+  "id": 1970,
+  "name": "Mountain Ravine",
+  "maximumLevel": 1,
+  "minimumLevel": 1,
+  "entrances": [
+    {
+      "target": 111,
+      "x": 20,
+      "y": 22
+    }
+  ]
+}

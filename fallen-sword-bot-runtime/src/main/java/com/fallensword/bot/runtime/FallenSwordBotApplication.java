@@ -2,7 +2,7 @@ package com.fallensword.bot.runtime;
 
 import com.fallensword.bot.api.domain.FetchFlag;
 import com.fallensword.bot.api.domain.player.Player;
-import com.fallensword.bot.api.domain.world.World;
+import com.fallensword.bot.world.domain.World;
 import com.fallensword.bot.api.endpoint.info.FetchInfoEndpoint;
 import com.fallensword.bot.api.endpoint.info.domain.FetchInfoContext;
 import com.fallensword.bot.routine.pipeline.RoutinePipeline;

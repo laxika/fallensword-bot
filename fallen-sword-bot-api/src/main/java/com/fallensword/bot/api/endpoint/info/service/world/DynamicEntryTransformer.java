@@ -1,8 +1,8 @@
 package com.fallensword.bot.api.endpoint.info.service.world;
 
-import com.fallensword.bot.api.domain.world.dynamic.DynamicEntry;
-import com.fallensword.bot.api.domain.world.dynamic.UnknownDynamicEntry;
-import com.fallensword.bot.api.domain.world.dynamic.WorldMarkerDynamicEntry;
+import com.fallensword.bot.world.domain.dynamic.DynamicEntry;
+import com.fallensword.bot.world.domain.dynamic.UnknownDynamicEntry;
+import com.fallensword.bot.world.domain.dynamic.WorldMarkerDynamicEntry;
 import com.fallensword.bot.api.endpoint.info.domain.response.world.dynamic.RawDynamicEntryPartialResponse;
 import com.fallensword.bot.api.endpoint.info.domain.response.world.dynamic.type.RawUnknownDynamicEntryPartialResponse;
 import com.fallensword.bot.api.endpoint.info.domain.response.world.dynamic.type.marker.RawWorldMarkerDynamicEntryPartialResponse;

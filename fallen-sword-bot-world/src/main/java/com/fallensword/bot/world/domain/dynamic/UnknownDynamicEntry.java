@@ -1,4 +1,4 @@
-package com.fallensword.bot.api.domain.world.dynamic;
+package com.fallensword.bot.world.domain.dynamic;
 
 import lombok.Builder;
 import lombok.Getter;

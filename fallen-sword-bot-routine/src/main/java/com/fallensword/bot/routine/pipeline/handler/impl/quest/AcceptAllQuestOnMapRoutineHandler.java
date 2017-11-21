@@ -1,6 +1,6 @@
 package com.fallensword.bot.routine.pipeline.handler.impl.quest;
 
-import com.fallensword.bot.api.domain.world.dynamic.WorldMarkerDynamicEntry;
+import com.fallensword.bot.world.domain.dynamic.WorldMarkerDynamicEntry;
 import com.fallensword.bot.api.endpoint.quest.QuestEndpoint;
 import com.fallensword.bot.api.endpoint.quest.domain.QuestContext;
 import com.fallensword.bot.location.domain.Location;

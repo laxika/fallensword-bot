@@ -1,6 +1,6 @@
 package com.fallensword.bot.routine.pipeline.handler.impl;
 
-import com.fallensword.bot.api.domain.world.action.CreatureAvailableAction;
+import com.fallensword.bot.world.domain.action.CreatureAvailableAction;
 import com.fallensword.bot.api.endpoint.attack.AttackEndpoint;
 import com.fallensword.bot.api.endpoint.attack.domain.AttackContext;
 import com.fallensword.bot.api.endpoint.attack.domain.TargetCreature;

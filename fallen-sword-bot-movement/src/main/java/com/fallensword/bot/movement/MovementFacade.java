@@ -1,8 +1,8 @@
 package com.fallensword.bot.movement;
 
 import com.fallensword.bot.api.domain.player.Player;
-import com.fallensword.bot.api.domain.world.World;
-import com.fallensword.bot.api.domain.world.tile.WorldTile;
+import com.fallensword.bot.world.domain.World;
+import com.fallensword.bot.world.domain.tile.Tile;
 import com.fallensword.bot.api.endpoint.movement.MovementEndpoint;
 import com.fallensword.bot.api.endpoint.movement.domain.MovementContext;
 import com.fallensword.bot.movement.target.MovementPathCalculator;
@@ -56,7 +56,7 @@ public class MovementFacade {
      * @param world the world of the player
      */
     private void moveToAdjacentTile(final Location location, final Player player, final World world) {
-        final WorldTile targetTile = world.getTileAt(location.getX(), location.getY());
+        final Tile targetTile = world.getTileAt(location.getX(), location.getY());
         targetTile.setMovementCount(targetTile.getMovementCount() + 1);
 
         movementEndpoint.request(

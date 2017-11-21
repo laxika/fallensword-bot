@@ -5,3 +5,6 @@ include 'fallen-sword-bot-routine'
 include 'fallen-sword-bot-movement'
 include 'fallen-sword-bot-location'
 include 'fallen-sword-bot-runtime'
+include 'fallen-sword-bot-world'
+include 'fallen-sword-bot-quest'
+
