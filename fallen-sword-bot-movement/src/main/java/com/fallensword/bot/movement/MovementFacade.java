@@ -55,7 +55,7 @@ public class MovementFacade {
      * @param player the player to move
      * @param world the world of the player
      */
-    public void moveToAdjacentTile(final Location location, final Player player, final World world) {
+    private void moveToAdjacentTile(final Location location, final Player player, final World world) {
         final WorldTile targetTile = world.getTileAt(location.getX(), location.getY());
         targetTile.setMovementCount(targetTile.getMovementCount() + 1);
 

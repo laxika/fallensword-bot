@@ -1,16 +1,20 @@
 package com.fallensword.bot.routine.pipeline.handler.impl.quest;
 
 import com.fallensword.bot.api.domain.world.dynamic.WorldMarkerDynamicEntry;
-import com.fallensword.bot.movement.MovementFacade;
+import com.fallensword.bot.api.endpoint.quest.QuestEndpoint;
+import com.fallensword.bot.api.endpoint.quest.domain.QuestContext;
 import com.fallensword.bot.location.domain.Location;
+import com.fallensword.bot.movement.MovementFacade;
 import com.fallensword.bot.routine.pipeline.RoutinePipeline;
 import com.fallensword.bot.routine.pipeline.domain.RoutineContext;
 import com.fallensword.bot.routine.pipeline.handler.RoutineHandler;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class AcceptAllQuestOnMapRoutineHandler implements RoutineHandler {
@@ -19,6 +23,7 @@ public class AcceptAllQuestOnMapRoutineHandler implements RoutineHandler {
     private static final int QUEST_WORLD_MARKER_ENTRY_SUBTYPE_ID = 0;
 
     private final MovementFacade movementFacade;
+    private final QuestEndpoint questEndpoint;
 
     @Override
     public void handle(RoutineContext routineContext, RoutinePipeline routinePipeline) {
@@ -34,9 +39,18 @@ public class AcceptAllQuestOnMapRoutineHandler implements RoutineHandler {
 
             if (worldMarkerDynamicEntry.getX() == routineContext.getPlayer().getLocationX()
                     && worldMarkerDynamicEntry.getY() == routineContext.getPlayer().getLocationY()) {
-                System.out.println("FOUND IT!");
+                log.info("Accepting a new quest[" + worldMarkerDynamicEntry.getId() + "]: "
+                        + worldMarkerDynamicEntry.getName());
+
+                questEndpoint.request(
+                        QuestContext.builder()
+                                .questId(worldMarkerDynamicEntry.getId())
+                                .build()
+                );
             } else {
-                //TODO: Go for the quest
+                log.info("Moving closer to quest endpoint[" + worldMarkerDynamicEntry.getId() + "]: "
+                        + worldMarkerDynamicEntry.getName());
+
                 movementFacade.moveTowardsTile(
                         Location.builder()
                                 .x(worldMarkerDynamicEntry.getX())
@@ -45,7 +59,6 @@ public class AcceptAllQuestOnMapRoutineHandler implements RoutineHandler {
                         routineContext.getPlayer(),
                         routineContext.getWorld()
                 );
-                System.out.println("MOVING TO!");
             }
         } else {
             routinePipeline.proceedWithRoutine(routineContext);

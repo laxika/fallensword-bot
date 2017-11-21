@@ -10,9 +10,16 @@ public enum Action {
      */
     INFO(-1),
     /**
+     * Accept or update a quest.
+     */
+    QUEST(0),
+    /**
      * Attack a creature on the world map.
      */
     ATTACK_MONSTER(2),
+    /**
+     * Attack a player on the world map.
+     */
     ATTACK_PLAYER(3),
     /**
      * Move on the world map.
